@@ -17,7 +17,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
-            text = console.ReadLine()
+            text = console.ReadLine();
             return text;
         }
 
@@ -30,7 +30,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             if (!file.exists(fileName))
             {
                 using (StreamReader sr = File.OpenText(fileName));
-                text = sr
+                text = sr;
             }
             return text;
         }
