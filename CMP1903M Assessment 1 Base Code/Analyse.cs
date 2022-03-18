@@ -19,7 +19,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             //List of integers to hold the first five measurements:
             //1. Number of sentences
             //2. Number of vowels
+            List<char> vowels = ["A","E","I","O","U"];
             //3. Number of consonants
+            List<char> consonants = ["B","C","D","F","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z"];
             //4. Number of upper case letters
             //5. Number of lower case letters
             List<int> values = new List<int>();
@@ -28,7 +30,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 values.Add(0);
             }
-
+            Console.WriteLine(values)
 
             return values;
         }
