@@ -1,0 +1,5 @@
+E:\OOPAss\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\obj\Debug\net6.0\CMP1903M Assessment 1 Base Code.csproj.AssemblyReference.cache
+E:\OOPAss\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\obj\Debug\net6.0\CMP1903M Assessment 1 Base Code.GeneratedMSBuildEditorConfig.editorconfig
+E:\OOPAss\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\obj\Debug\net6.0\CMP1903M Assessment 1 Base Code.AssemblyInfoInputs.cache
+E:\OOPAss\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\obj\Debug\net6.0\CMP1903M Assessment 1 Base Code.AssemblyInfo.cs
+E:\OOPAss\CMP1903M Assessment 1 Base Code\CMP1903M Assessment 1 Base Code\obj\Debug\net6.0\CMP1903M Assessment 1 Base Code.csproj.CoreCompileInputs.cache

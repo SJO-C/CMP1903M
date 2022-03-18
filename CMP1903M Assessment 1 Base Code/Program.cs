@@ -10,9 +10,9 @@ namespace CMP1903M_Assessment_1_Base_Code
     class Program
     {
         static void Main()
-        {
+        { }
             //Local list of integers to hold the first five measurements of the text
-            List<int> parameters = new List<int>();
+            public List<int> parameters = new List<int>();
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
@@ -28,10 +28,10 @@ namespace CMP1903M_Assessment_1_Base_Code
                 IDictionary<string, int> analyseText = new Dictionary<string, int>();
 
                 char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
-                foreach (char element in alfabeto)
-                {
+                //foreach (char element in alfabeto)
+                //{
                     
-                }
+                //}
 
                 
                     
@@ -45,11 +45,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
 
             //TO ADD: Get the frequency of individual letters?
-
+            }
            
         }
         
         
     
-    }
-}
+
+
