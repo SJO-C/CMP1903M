@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//Attendance Code 712-184 for 18/03/'22
 namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
@@ -25,10 +25,17 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Pass the text input to the 'analyseText' method
             public class Analyse
             {
-                public list analyseText
+                IDictionary<string, int> analyseText = new Dictionary<string, int>();
+
+                char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
+                foreach (char element in alfabeto)
                 {
                     
                 }
+
+                
+                    
+                
             }
 
             //Receive a list of integers back
