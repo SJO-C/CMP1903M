@@ -9,18 +9,43 @@ namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
     {
-        static void main()
+        static void Main()
         {
+
             //Local list of integers to hold the first five measurements of the text
-            public List<int> parameters = new List<int>();
+           // public List<int> parameters = new List<int>();
 
         //Create 'Input' object
         //Get either manually entered text, or text from a file
             string Menu = ("");
+            string textDataforAnalysis;
             Input TInput = new Input();
-            Console.WriteLine("");
-            Console.WriteLine("(M)anual or (F)ile Mode?> ");
-            char menuChoice = Console.readline();
+            
+            Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");
+            ConsoleKeyInfo menuChoice = Console.ReadKey();
+            if (menuChoice.Key == ConsoleKey.M)
+            {
+                Console.WriteLine("\nManual Mode Selected.");
+                textDataforAnalysis = TInput.manualTextInput();
+            }
+
+            else if (menuChoice.Key == ConsoleKey.F)
+            {
+                Console.WriteLine("\nFile Mode Selected.");
+                Console.Write("Enter File Path > ");
+                string path2File = Console.ReadLine();
+                textDataforAnalysis = TInput.fileTextInput(path2File);
+
+            }
+            else if (menuChoice.Key == ConsoleKey.Q)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine();
+                Main();
+            }
         //Create an 'Analyse' object
         //Pass the text input to the 'analyseText' method
 
@@ -31,9 +56,8 @@ namespace CMP1903M_Assessment_1_Base_Code
 
 
         //TO ADD: Get the frequency of individual letters? 
-    }
+        }
 }
-
 }
            
      

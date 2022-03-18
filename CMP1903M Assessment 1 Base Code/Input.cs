@@ -30,14 +30,17 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
            try
             {
-                using (StreamReader sr = File.OpenText(fileName));
-                text = sr;
+                StreamReader sr = File.OpenText(fileName);
+                text = sr.ToString();
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("File Not Found");
-                text = null;
+                Console.Write("File NOT Found: Please re-enter your File Path. > ");
+                fileName = Console.ReadLine();
+                fileTextInput(fileName);
             }
+
+            return text;
         }
 
     }
