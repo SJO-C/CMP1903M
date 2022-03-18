@@ -16,11 +16,20 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
-
+            public class Input
+            {
+                public string Input = Input.text;
+            }
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
-
+            public class Analyse
+            {
+                public list analyseText
+                {
+                    
+                }
+            }
 
             //Receive a list of integers back
 
