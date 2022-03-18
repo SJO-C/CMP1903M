@@ -17,6 +17,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
+            Console.Write("Please Input Text at the Prompt> ");
             text = Console.ReadLine();
             return text;
         }
@@ -35,6 +36,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File Not Found");
+                text = null;
             }
         }
 

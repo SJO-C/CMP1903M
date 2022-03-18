@@ -34,3 +34,13 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
     }
 }
+//IDictionary<string, int> analyseText = new Dictionary<string, int>();
+
+//char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
+////foreach (char element in alfabeto)
+////{
+
+////}
+
+
+

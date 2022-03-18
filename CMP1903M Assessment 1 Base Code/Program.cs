@@ -4,50 +4,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//Attendance Code 712-184 for 18/03/'22
+
 namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
     {
-        static void Main()
-        { }
+        static void main()
+        {
             //Local list of integers to hold the first five measurements of the text
             public List<int> parameters = new List<int>();
 
-            //Create 'Input' object
-            //Get either manually entered text, or text from a file
-            public class Input
-            {
-                public string Input = Input.text;
-            }
+        //Create 'Input' object
+        //Get either manually entered text, or text from a file
+            string Menu = ("");
+            Input TInput = new Input();
+            Console.WriteLine("");
+            Console.WriteLine("(M)anual or (F)ile Mode?> ");
+            char menuChoice = Console.readline();
+        //Create an 'Analyse' object
+        //Pass the text input to the 'analyseText' method
 
-            //Create an 'Analyse' object
-            //Pass the text input to the 'analyseText' method
-            public class Analyse
-            {
-                IDictionary<string, int> analyseText = new Dictionary<string, int>();
-
-                char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
-                //foreach (char element in alfabeto)
-                //{
-                    
-                //}
-
-                
-                    
-                
-            }
-
-            //Receive a list of integers back
+        //Receive a list of integers back
 
 
-            //Report the results of the analysis
+        //Report the results of the analysis
 
 
-            //TO ADD: Get the frequency of individual letters?
-            }
+        //TO ADD: Get the frequency of individual letters? 
+    }
+}
+
+}
            
-        }
+     
         
         
     
