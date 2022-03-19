@@ -28,16 +28,24 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
-           try
+            try
             {
-                StreamReader sr = File.OpenText(fileName);
-                text = sr.ToString();
+                text = File.ReadAllText(fileName);
+
             }
             catch (FileNotFoundException)
             {
                 Console.Write("File NOT Found: Please re-enter your File Path. > ");
                 fileName = Console.ReadLine();
                 fileTextInput(fileName);
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Path Not Valid.");
+                Console.Write("Please re-enter your File Path. > ");
+                fileName = Console.ReadLine();
+                fileTextInput(fileName);
+
             }
 
             return text;

@@ -1,0 +1,11 @@
+Object Oriented programming is a programming paradigm that relies on the concept of classes and objects.  A class is an abstract blueprint used to create more specific, concrete objects. Classes often represent broad categories, like Car or Dog that share attributes. These classes define what attributes an instance of this type will have, like colour, but not the value of those attributes for a specific object. Classes can also contain functions, called methods available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object.*
+
+
+*Test Data:
+Sentences:	6
+Total Characters: 506
+Vowels: 189		
+Upper Case:	9
+Lower Case: 497
+
+*Doesn't include punctuation or whitespaces between words.

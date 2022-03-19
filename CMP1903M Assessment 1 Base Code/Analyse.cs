@@ -19,9 +19,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             //List of integers to hold the first five measurements:
             //1. Number of sentences
             //2. Number of vowels
-            List<char> vowels = ["A","E","I","O","U"];
+            string vowels = "AEIOU".ToCharArray();
+            
             //3. Number of consonants
-            List<char> consonants = ["B","C","D","F","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z"];
+            char[] consonants = "BCDFHJKLMNPQRSTVWXYZ".ToCharArray();
+             
             //4. Number of upper case letters
             //5. Number of lower case letters
             List<int> values = new List<int>();
@@ -30,13 +32,26 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 values.Add(0);
             }
-            Console.WriteLine(values)
+
+
+            var vowelsMatch = input.Where(input => input.Contains(vowels));
+
+
+
+            Console.WriteLine("Sentence Count TBC." + values[0]);
+            Console.WriteLine("Vowel Count? " + values[1]);
+            Console.WriteLine("Consonats Count TBC." + values[2]);
+            Console.WriteLine("Upper-Case Count TBC" + values[3]);
+            Console.WriteLine("Lower-Case Count TBC" + values[4]);
+
+
+       
 
             return values;
         }
     }
 }
-//IDictionary<string, int> analyseText = new Dictionary<string, int>();
+//IDictionary<stringint> analyseText = new Dictionary<stringint>();
 
 //char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
 ////foreach (char element in alfabeto)

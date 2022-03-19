@@ -18,7 +18,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Create 'Input' object
         //Get either manually entered text, or text from a file
             string Menu = ("");
-            string textDataforAnalysis;
+            string textDataforAnalysis = "aaaaaaa";
             Input TInput = new Input();
             
             Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");
@@ -31,10 +31,20 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             else if (menuChoice.Key == ConsoleKey.F)
             {
-                Console.WriteLine("\nFile Mode Selected.");
-                Console.Write("Enter File Path > ");
-                string path2File = Console.ReadLine();
-                textDataforAnalysis = TInput.fileTextInput(path2File);
+                try{
+                    Console.WriteLine("\nFile Mode Selected.");
+                    Console.Write("Enter File Path > ");
+                    string path2File = Console.ReadLine();
+                    textDataforAnalysis = TInput.fileTextInput(path2File);
+                    
+                }
+                catch(NullReferenceException){
+                    Console.Beep();
+                    Console.WriteLine("File Path Not Provided.");
+                    Main();
+                }
+
+                
 
             }
             else if (menuChoice.Key == ConsoleKey.Q)
@@ -48,16 +58,17 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
         //Create an 'Analyse' object
         //Pass the text input to the 'analyseText' method
+            Analyse Counts = new Analyse();
+            Counts.analyseText(textDataforAnalysis);
 
-        //Receive a list of integers back
+            //Receive a list of integers back
+
+            //Report the results of the analysis
 
 
-        //Report the results of the analysis
-
-
-        //TO ADD: Get the frequency of individual letters? 
+            //TO ADD: Get the frequency of individual letters? 
         }
-}
+    }
 }
            
      
