@@ -50,10 +50,17 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //int countVowels = 
 
-            var vowelsMatch = from x in input.ToArray() where input.ToArray().Contains(vowels.Any()) select x;
+            var vowelsQuery =
+                from Char in vowels
+                join vowles in vowels on input.ToCharArray() equals vowels
+                select new
+                {
+                    vQ = vowles,
+                };
 
+            
 
-            values[1] = vowelsMatch.Count();
+            values[1] = vowelsQuery.Count();
             
 
 
