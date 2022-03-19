@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
+    ////Courtsey of Michael Pakhantsov of Stack Overflow.
+    //static class SqlStyleExtensions
+    //{
+    //    public static bool In(this string me, params string[] set)
+    //    {
+    //        return set.Contains(me);
+    //    }
+    //}
+    ////END OF BORROWED CODE
     public class Analyse
     {
         //Handles the analysis of text
@@ -19,10 +28,10 @@ namespace CMP1903M_Assessment_1_Base_Code
             //List of integers to hold the first five measurements:
             //1. Number of sentences
             //2. Number of vowels
-            string vowels = "AEIOU".ToCharArray();
-            
+            char[] vowels = "AEIOU".ToCharArray();
+
             //3. Number of consonants
-            char[] consonants = "BCDFHJKLMNPQRSTVWXYZ".ToCharArray();
+            string consonants = "BCDFHJKLMNPQRSTVWXYZ";
              
             //4. Number of upper case letters
             //5. Number of lower case letters
@@ -34,10 +43,22 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
 
 
-            var vowelsMatch = input.Where(input => input.Contains(vowels));
+            //int vowelCount = 0;
+            //if (vowels.In(input)){
+            //    values[1]++;
+            //}
+
+            //int countVowels = 
+
+            var vowelsMatch = from x in input.ToArray() where input.ToArray().Contains(vowels.Any()) select x;
+
+
+            values[1] = vowelsMatch.Count();
+            
 
 
 
+            //DEBUG
             Console.WriteLine("Sentence Count TBC." + values[0]);
             Console.WriteLine("Vowel Count? " + values[1]);
             Console.WriteLine("Consonats Count TBC." + values[2]);
