@@ -30,7 +30,15 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             try
             {
-                text = File.ReadAllText(fileName);
+                using (var sr = new StreamReader(fileName))
+                {
+                    // Read the stream as a string, and write the string to the console.
+                    Console.WriteLine("Text File as Found:");
+
+                    Console.WriteLine(sr.ReadToEnd());
+
+                    text = sr.ReadToEnd();
+                }
 
             }
             catch (FileNotFoundException)

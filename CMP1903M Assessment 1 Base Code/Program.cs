@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
     {
+        
         static void Main()
         {
 
@@ -31,7 +33,10 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             else if (menuChoice.Key == ConsoleKey.F)
             {
-                try{
+                
+                try
+                {
+                    Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory());
                     Console.WriteLine("\nFile Mode Selected.");
                     Console.Write("Enter File Path > ");
                     string path2File = Console.ReadLine();

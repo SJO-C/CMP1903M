@@ -69,8 +69,8 @@ namespace CMP1903M_Assessment_1_Base_Code
             Console.WriteLine("Sentence Count TBC." + values[0]);
             Console.WriteLine("Vowel Count? " + values[1]);
             Console.WriteLine("Consonants Count TBC." + values[2]);
-            Console.WriteLine("Upper-Case Count TBC" + values[3]);
-            Console.WriteLine("Lower-Case Count TBC" + values[4]);
+            Console.WriteLine("Upper-Case Count TBC. " + values[3]);
+            Console.WriteLine("Lower-Case Count TBC. " + values[4]);
 
 
        
