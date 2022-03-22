@@ -50,19 +50,59 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //int countVowels = 
 
-            var vowelsQuery =
-                from Char in vowels
-                join vowles in vowels on input.ToCharArray() equals vowels
-                select new
+            //var vowelsQuery =
+            //    from Char in vowels
+            //    join vowles in vowels on input.ToCharArray() equals vowels
+            //    select new
+            //    {
+            //        vQ = vowles,
+            //    };
+            //values[1] = vowelsQuery.Count();
+
+            int loopCounter = 0;
+            foreach(var i in input.ToUpper())
+            {
+                if (i == ((char)42)) { break; }
+                else if (vowels.Contains(i))
                 {
-                    vQ = vowles,
-                };
+                    values[1]++;
+                }
+                else if (consonants.Contains(i))
+                {
+                    values[2]++;
+                }
+                else if (input.Contains(".")) 
+                {
+                    if ((i == ((char)46)) && (input[loopCounter++] == ((char)46)))
+                    {
+                        ;
+                    }
+                    else
+                    {
+                        values[0]++;
+                    }
+                }
+                loopCounter++;
+            }
+            //Converts the String to an Array of Bytes.
+            byte[] inputASCII = Encoding.ASCII.GetBytes(input);
+            //Loops through the Array of Bytes and if the Byte is in the range of a Capital Letter, Increments the 
+            //Capital Letter Counter by 1 or if it is in the range of a Lower Case, it increments the Lower Case Counter
+            //by 1.
+            foreach (var j in inputASCII)
+            { 
+                int inputASCII2Int = BitConverter.ToInt32(inputASCII, 0);
+                if (inputASCII2Int == 42) { break; }
+                else if (inputASCII2Int >= 65 && inputASCII2Int <= 90)
+                {
+                    values[3]++;
+                }
+                else if (inputASCII2Int >= 92 && inputASCII2Int <= 122)
+                {
+                    values[4]++;
+                }
 
-            
-
-            values[1] = vowelsQuery.Count();
-            
-
+            }
 
 
             //DEBUG
