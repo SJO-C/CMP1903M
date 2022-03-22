@@ -73,13 +73,23 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else if (input.Contains(".")) 
                 {
-                    if ((i == ((char)46)) && (input[loopCounter++] == ((char)46)))
+                    try
                     {
-                        ;
+                        if ((i == ((char)46)) && (input[loopCounter++] == ((char)46)))
+                        {
+                            ;
+                        }
+                        else
+                        {
+                            values[0]++;
+                        }
                     }
-                    else
+                    catch (IndexOutOfRangeException)
                     {
-                        values[0]++;
+                        if (i == ((char)46))
+                        {
+                            values[0]++; 
+                        }
                     }
                 }
                 loopCounter++;

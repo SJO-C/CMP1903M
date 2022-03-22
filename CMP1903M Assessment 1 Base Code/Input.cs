@@ -31,6 +31,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             
             {
                 text = File.ReadAllText(fileName);
+                Console.WriteLine(text);
                 //using (var sr = new StreamReader(fileName))
                 //{
                 //    // Read the stream as a string, and write the string to the console.
