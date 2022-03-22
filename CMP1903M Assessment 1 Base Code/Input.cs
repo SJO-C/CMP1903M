@@ -28,33 +28,21 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
-            try
+            
             {
-                using (var sr = new StreamReader(fileName))
-                {
-                    // Read the stream as a string, and write the string to the console.
-                    Console.WriteLine("Text File as Found:");
+                text = File.ReadAllText(fileName);
+                //using (var sr = new StreamReader(fileName))
+                //{
+                //    // Read the stream as a string, and write the string to the console.
+                //    Console.WriteLine("Text File as Found:");
 
-                    Console.WriteLine(sr.ReadToEnd());
+                //    Console.WriteLine(sr.ReadToEnd());
 
-                    text = sr.ReadToEnd();
-                }
+                //    text = sr.ReadToEnd();
+             
 
             }
-            catch (FileNotFoundException)
-            {
-                Console.Write("File NOT Found: Please re-enter your File Path. > ");
-                fileName = Console.ReadLine();
-                fileTextInput(fileName);
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Path Not Valid.");
-                Console.Write("Please re-enter your File Path. > ");
-                fileName = Console.ReadLine();
-                fileTextInput(fileName);
-
-            }
+       
 
             return text;
         }
