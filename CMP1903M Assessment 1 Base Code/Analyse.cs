@@ -32,7 +32,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             char[] vowels = "AEIOU".ToCharArray();
 
             //3. Number of consonants
-            string consonants = "BCDFHJKLMNPQRSTVWXYZ";
+            string consonants = "BCDFGHJKLMNPQRSTVWXYZ";
              
             //4. Number of upper case letters
             //5. Number of lower case letters
@@ -62,9 +62,10 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             Regex rxSentence = new Regex(@"^\w+[A-Za-z,;'s]+[.?!]$");
             MatchCollection matches = rxSentence.Matches(input);
-            Regex rxUpper = new Regex(@"[A-Z]");
+            Regex rxUpper = new Regex(@"[A-Z]^\.");
             Regex rxLower = new Regex(@"[a-z]");
             Regex rxLongWord = new Regex(@"([A-Za-z]{7,})");
+            Regex rxElispses = new Regex(@"(\.{3,})");
             
             
             foreach(var i in input.ToUpper())
@@ -80,9 +81,15 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
                 else if (i == ((char)46))
                 {
-                    values[0]++;
+                    if (rxElispses.IsMatch(i.ToString()))
+                    {
+                        ;
+                    }
+                    else { values[3]++; }
+
                 }  
             }
+
             foreach (var j in input)
             {
                 Console.WriteLine(j.ToString());
