@@ -84,8 +84,8 @@ namespace CMP1903M_Assessment_1_Base_Code
             values[5] = rxLongWord.Matches(input).Count();
             string DT = DateTime.Now.ToString();
             DT = DT.Replace(":", "-");
-            DT = DT.Replace("/", "-");
-            DT = DT.Replace(@"\", "-");
+            DT = DT.Replace("/", "_");
+            DT = DT.Replace(@"\", "_");
             string longWordFN = ("LongWords" + DT + ".txt");
             Console.WriteLine(longWordFN);
             var longWords = File.CreateText(longWordFN);
