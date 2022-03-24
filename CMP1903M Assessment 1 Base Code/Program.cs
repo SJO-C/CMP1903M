@@ -33,25 +33,31 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             else if (menuChoice.Key == ConsoleKey.F)
             {
-                
+
                 try
                 {
-                    Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory());
                     Console.WriteLine("\nFile Mode Selected.");
+                    Console.WriteLine("\nIf your text file is not in the same directory as this Executable,\n Please enter the full path using forward as opposed to back slashes.\n");
+                    Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory());
                     Console.Write("Enter File Path > ");
                     string path2File = Console.ReadLine();
                     textDataforAnalysis = TInput.fileTextInput(path2File);
-                    
+
                 }
-                catch(NullReferenceException){
+                catch (NullReferenceException)
+                {
                     Console.Beep();
                     Console.WriteLine("File Path Not Provided.");
                     Main();
                 }
-
-                
-
+                catch (FileNotFoundException)
+                {
+                    Console.Beep();
+                    Console.WriteLine("File Not found where described.");
+                    Main();
+                }
             }
+            
             else if (menuChoice.Key == ConsoleKey.Q)
             {
                 Environment.Exit(0);
@@ -84,8 +90,17 @@ namespace CMP1903M_Assessment_1_Base_Code
             //TO ADD: Get the frequency of individual letters? 
 
 
-            Console.WriteLine("Press Any Key to Exit the Program...");
-            Console.ReadKey();
+            Console.WriteLine("Press R to go again or Q to quit.");
+
+            ConsoleKeyInfo rerunMenu = Console.ReadKey();
+            if (rerunMenu.Key == ConsoleKey.R)
+            {
+                Main();
+            }
+            else if (rerunMenu.Key == ConsoleKey.Q)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

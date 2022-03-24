@@ -17,8 +17,8 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
-            Console.Write("Please Input Text at the Prompt> ");
-            text = Console.ReadLine();
+            Console.Write("Please Input Text at the Prompt> ");//User Prompt
+            text = Console.ReadLine();//Reads User Input up to 1st Newline Character.
             return text;
         }
 
@@ -28,23 +28,10 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
-            
             {
-                text = File.ReadAllText(fileName);
-                Console.WriteLine(text);
-                //using (var sr = new StreamReader(fileName))
-                //{
-                //    // Read the stream as a string, and write the string to the console.
-                //    Console.WriteLine("Text File as Found:");
-
-                //    Console.WriteLine(sr.ReadToEnd());
-
-                //    text = sr.ReadToEnd();
-             
-
+                text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
+                Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
             }
-       
-
             return text;
         }
 

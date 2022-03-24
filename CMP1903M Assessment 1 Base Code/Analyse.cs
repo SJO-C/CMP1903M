@@ -7,15 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
-    ////Courtsey of Michael Pakhantsov of Stack Overflow.
-    //static class SqlStyleExtensions
-    //{
-    //    public static bool In(this string me, params string[] set)
-    //    {
-    //        return set.Contains(me);
-    //    }
-    //}
-    ////END OF BORROWED CODE
+
     public class Analyse
     {
         //Handles the analysis of text
@@ -43,39 +35,24 @@ namespace CMP1903M_Assessment_1_Base_Code
                 values.Add(0);
             }
 
-
-            //int vowelCount = 0;
-            //if (vowels.In(input)){
-            //    values[1]++;
-            //}
-
-            //int countVowels = 
-
-            //var vowelsQuery =
-            //    from Char in vowels
-            //    join vowles in vowels on input.ToCharArray() equals vowels
-            //    select new
-            //    {
-            //        vQ = vowles,
-            //    };
-            //values[1] = vowelsQuery.Count();
-
+            //Use of Regular expressions, Thanks John Brock for the Inspiration here.
+            //This is done to allow for a more efficient -in theory- program.
             Regex rxSentence = new Regex(@"^\w+[A-Za-z,;'s]+[.?!]$");
             MatchCollection matches = rxSentence.Matches(input);
-            Regex rxUpper = new Regex(@"[A-Z]^\.");
+            Regex rxUpper = new Regex(@"[A-Z]");
             Regex rxLower = new Regex(@"[a-z]");
             Regex rxLongWord = new Regex(@"([A-Za-z]{7,})");
             Regex rxElispses = new Regex(@"(\.{3,})");
             
-            
+            //The input exists only as upper case in the scope of this loop, it is unaffected elsewhere.
             foreach(var i in input.ToUpper())
             {
-                if (i == ((char)42)) { break; }
-                else if (vowels.Contains(i))
+                if (i == ((char)42)) { break; }//Identifies the Askerisk as the string terminator.
+                else if (vowels.Contains(i)) //Checks if the current interator's value is a vowel.
                 {
                     values[1]++;
                 }
-                else if (consonants.Contains(i))
+                else if (consonants.Contains(i)) //Same as above, jsut for consonants.
                 {
                     values[2]++;
                 }
@@ -89,10 +66,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 }  
             }
-
+            
+            //This Loop is for identifying the letter case via the use of Regex.
             foreach (var j in input)
             {
-                Console.WriteLine(j.ToString());
+                //Console.WriteLine(j.ToString()); <DEBUG LINE DISREGARD>
                 if (rxUpper.IsMatch(j.ToString()) == true)
                 {
                     values[3]++;
@@ -101,16 +79,27 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     values[4]++;
                 }
-                else if (rxLongWord.IsMatch(j.ToString()) == true)
-                {
-                    values[5]++;
-                }
-
             }
 
+            values[5] = rxLongWord.Matches(input).Count();
+            string DT = DateTime.Now.ToString();
+            DT = DT.Replace(":", "-");
+            DT = DT.Replace("/", "-");
+            DT = DT.Replace(@"\", "-");
+            string longWordFN = ("LongWords" + DT + ".txt");
+            Console.WriteLine(longWordFN);
+            var longWords = File.CreateText(longWordFN);
+            foreach (var k in rxLongWord.Matches(input))
+            {
+                longWords.WriteLine(k);
+            }
+            longWords.Close();
 
 
 
+            //####################
+            //OLD CODE PLS IGNORE.
+            //####################
             //Converts the String to an Array of Bytes.
             //byte[] inputASCII = Encoding.ASCII.GetBytes(input);
             ////Loops through the Array of Bytes and if the Byte is in the range of a Capital Letter, Increments the 
@@ -140,7 +129,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Console.WriteLine("Lower-Case Count TBC. " + values[4]);
 
 
-       
+
 
             return values;
         }
