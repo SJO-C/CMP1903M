@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
@@ -59,7 +60,12 @@ namespace CMP1903M_Assessment_1_Base_Code
             //    };
             //values[1] = vowelsQuery.Count();
 
-            int loopCounter = 0;
+            Regex rxSentence = new Regex(@"^\w+[A-Za-z,;'s]+[.?!]$");
+            MatchCollection matches = rxSentence.Matches(input);
+            Regex rxUpper = new Regex(@"[A-Z]");
+            Regex rxLower = new Regex(@"[a-z]");
+            
+            
             foreach(var i in input.ToUpper())
             {
                 if (i == ((char)42)) { break; }
@@ -71,48 +77,45 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     values[2]++;
                 }
-                else if (input.Contains(".")) 
+                else if (i == ((char)46))
                 {
-                    try
-                    {
-                        if ((i == ((char)46)) && (input[loopCounter++] == ((char)46)))
-                        {
-                            ;
-                        }
-                        else
-                        {
-                            values[0]++;
-                        }
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        if (i == ((char)46))
-                        {
-                            values[0]++; 
-                        }
-                    }
-                }
-                loopCounter++;
+                    values[0]++;
+                }  
             }
-            //Converts the String to an Array of Bytes.
-            byte[] inputASCII = Encoding.ASCII.GetBytes(input);
-            //Loops through the Array of Bytes and if the Byte is in the range of a Capital Letter, Increments the 
-            //Capital Letter Counter by 1 or if it is in the range of a Lower Case, it increments the Lower Case Counter
-            //by 1.
-            foreach (var j in inputASCII)
-            { 
-                int inputASCII2Int = BitConverter.ToInt32(inputASCII, 0);
-                if (inputASCII2Int == 42) { break; }
-                else if (inputASCII2Int >= 65 && inputASCII2Int <= 90)
+            foreach (var j in input)
+            {
+                Console.WriteLine(j.ToString());
+                if (rxUpper.IsMatch(j.ToString()) == true)
                 {
                     values[3]++;
                 }
-                else if (inputASCII2Int >= 92 && inputASCII2Int <= 122)
+                else if (rxLower.IsMatch(j.ToString()) == true)
                 {
                     values[4]++;
                 }
 
             }
+
+
+            //Converts the String to an Array of Bytes.
+            //byte[] inputASCII = Encoding.ASCII.GetBytes(input);
+            ////Loops through the Array of Bytes and if the Byte is in the range of a Capital Letter, Increments the 
+            ////Capital Letter Counter by 1 or if it is in the range of a Lower Case, it increments the Lower Case Counter
+            ////by 1.
+            //foreach (var j in inputASCII)
+            //{
+            //    int inputASCII2Int = BitConverter.ToInt32(inputASCII, 0);
+            //    if (inputASCII2Int == 42) { break; }
+            //    else if (inputASCII2Int >= 65 && inputASCII2Int <= 90)
+            //    {
+            //        values[3]++;
+            //    }
+            //    else if (inputASCII2Int >= 92 && inputASCII2Int <= 122)
+            //    {
+            //        values[4]++;
+            //    }
+
+            //}
 
 
             //DEBUG
