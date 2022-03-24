@@ -64,11 +64,21 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Create an 'Analyse' object
         //Pass the text input to the 'analyseText' method
             Analyse Counts = new Analyse();
-            Counts.analyseText(textDataforAnalysis);
 
             //Receive a list of integers back
+            List<int> letterData = Counts.analyseText(textDataforAnalysis);
 
             //Report the results of the analysis
+            Report reportOutput = new Report();
+            bool reportSuccess = reportOutput.outputConsole(letterData, true);
+            if (reportSuccess == true)
+            {
+                Console.WriteLine("Successfully Ran Report.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to Run Report Successfully.");
+            }
 
 
             //TO ADD: Get the frequency of individual letters? 

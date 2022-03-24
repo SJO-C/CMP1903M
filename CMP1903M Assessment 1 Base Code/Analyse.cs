@@ -38,7 +38,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             //5. Number of lower case letters
             List<int> values = new List<int>();
             //Initialise all the values in the list to '0'
-            for(int i = 0; i<5; i++)
+            for(int i = 0; i<6; i++)
             {
                 values.Add(0);
             }
@@ -64,6 +64,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             MatchCollection matches = rxSentence.Matches(input);
             Regex rxUpper = new Regex(@"[A-Z]");
             Regex rxLower = new Regex(@"[a-z]");
+            Regex rxLongWord = new Regex(@"([A-Za-z]{7,})");
             
             
             foreach(var i in input.ToUpper())
@@ -93,8 +94,14 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     values[4]++;
                 }
+                else if (rxLongWord.IsMatch(j.ToString()) == true)
+                {
+                    values[5]++;
+                }
 
             }
+
+
 
 
             //Converts the String to an Array of Bytes.
@@ -119,11 +126,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
 
             //DEBUG
-            Console.WriteLine("Sentence Count TBC." + values[0]);
-            Console.WriteLine("Vowel Count? " + values[1]);
-            Console.WriteLine("Consonants Count TBC." + values[2]);
-            Console.WriteLine("Upper-Case Count TBC. " + values[3]);
-            Console.WriteLine("Lower-Case Count TBC. " + values[4]);
+            //Console.WriteLine("Sentence Count TBC." + values[0]);
+            //Console.WriteLine("Vowel Count? " + values[1]);
+            //Console.WriteLine("Consonants Count TBC." + values[2]);
+            //Console.WriteLine("Upper-Case Count TBC. " + values[3]);
+            //Console.WriteLine("Lower-Case Count TBC. " + values[4]);
 
 
        
