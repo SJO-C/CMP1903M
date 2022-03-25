@@ -33,6 +33,8 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Console.WriteLine("Nombro de Majusklaj Literoj " + values[3]);
                     Console.WriteLine("Nombro de Minusklaj Literoj " + values[4]);
                     Console.WriteLine("Nombro de Granda Vortoj " + values[5]);
+
+
                 }
                 return true;
 

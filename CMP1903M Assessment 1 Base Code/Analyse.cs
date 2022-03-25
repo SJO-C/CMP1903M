@@ -96,7 +96,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             longWords.Close();
 
             Dictionary<char, int> letterCount = new Dictionary<char, int>();
-            foreach (var k in input.ToCharArray())
+            foreach (var k in input.ToUpper().ToCharArray())
             {
                 if (k == ((char)42)) { break; }
                 else if (k == (((char)46) ^ ((char)33) ^ ((char)34) ^
@@ -113,7 +113,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     ;
                 }
-                else if (!letterCount.ContainsKey(k))
+                else if (letterCount.ContainsKey(k) == true)
                 {
                     letterCount[k]++;
                 }
@@ -121,6 +121,12 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     letterCount.Add(k, 1);
                 }
+            }
+
+            foreach (char k in letterCount.Keys)
+            {
+                Console.WriteLine(k + " " + letterCount[k]);
+
             }
 
 
