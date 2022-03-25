@@ -95,11 +95,18 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             longWords.Close();
 
-            Dictionary<char, int> letterCount = new Dictionary<char, int>();
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
             foreach (var k in input.ToUpper().ToCharArray())
             {
                 if (k == ((char)42)) { break; }
-                else if (k == (((char)46) ^ ((char)33) ^ ((char)34) ^
+                
+                else if (charCount.ContainsKey(k) == true)
+                {
+                    charCount[k]++;
+                }
+                else
+                {
+                    if ((char)k != ((((char)46) ^ ((char)33) ^ ((char)34) ^
                    ((char)35) ^ ((char)36) ^ ((char)37) ^ ((char)38) ^
                    ((char)39) ^ ((char)40 ^ ((char)41) ^ ((char)43) ^
                    ((char)44) ^ ((char)45) ^ ((char)46) ^ ((char)47) ^
@@ -109,25 +116,21 @@ namespace CMP1903M_Assessment_1_Base_Code
                    ((char)96) ^ ((char)123) ^ ((char)124) ^ ((char)125) ^
                    ((char)126) ^ ((char)48) ^ ((char)49) ^ ((char)50) ^
                    ((char)51) ^ ((char)52) ^ ((char)53) ^ ((char)54) ^
-                   ((char)55) ^ ((char)56) ^ ((char)57))))
-                {
-                    ;
-                }
-                else if (letterCount.ContainsKey(k) == true)
-                {
-                    letterCount[k]++;
-                }
-                else
-                {
-                    letterCount.Add(k, 1);
+                   ((char)55) ^ ((char)56) ^ ((char)57)))))
+                   {
+                        charCount.Add(k, 1);
+                   }
+                    
                 }
             }
 
-            foreach (char k in letterCount.Keys)
+            Console.WriteLine("Character Frequencies: ");
+            foreach (char k in charCount.Keys)
             {
-                Console.WriteLine(k + " " + letterCount[k]);
+                Console.WriteLine(k + " " + charCount[k]);
 
             }
+            Console.WriteLine();
 
 
 
