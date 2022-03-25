@@ -29,8 +29,17 @@ namespace CMP1903M_Assessment_1_Base_Code
         public string fileTextInput(string fileName)
         {
             {
-                text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
-                Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
+                try 
+                {
+                    text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
+                    Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
+                }
+                catch (IOException)
+                {
+                    Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
+                    manualTextInput();
+                }
+                
             }
             return text;
         }

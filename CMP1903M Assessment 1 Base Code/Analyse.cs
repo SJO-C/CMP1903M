@@ -111,7 +111,6 @@ namespace CMP1903M_Assessment_1_Base_Code
             foreach (char k in charCount.Keys)
             {
                 Console.WriteLine(k + " " + charCount[k]);
-
             }
             Console.WriteLine();
 
