@@ -41,7 +41,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory());
                     Console.Write("Enter File Path > ");
                     string path2File = Console.ReadLine();
-                    textDataforAnalysis = TInput.fileTextInput("@"+path2File);
+                    textDataforAnalysis = TInput.fileTextInput(path2File);
 
                 }
                 catch (NullReferenceException)
