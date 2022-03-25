@@ -15,7 +15,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             try
             {
-                if ((ENyOrn == true) ^ (ENyOrn == null)){
+                if ((ENyOrn == true) ^ (ENyOrn == null)){//Outputs the Count of the measured metrics.
 
                 
                     Console.WriteLine("Sentence Count." + values[0]);
@@ -26,7 +26,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Console.WriteLine("Long Word Count (<=7). " + values[5]);
                 }
                 else
-                {
+                {//Outputs the Above Data in Esperanto.
                     Console.WriteLine("Nombro de Frazoj." + values[0]);
                     Console.WriteLine("Nombro de Vokaloj " + values[1]);
                     Console.WriteLine("Nombro de Konsonantoj. " + values[2]);
@@ -39,7 +39,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 return true;
 
             }
-            catch (Exception ex)
+            catch (Exception ex)//In the Event of any error on the Report, False is returned to indicate to the main program that report was not successful in running.
             {
                 return false;
             }

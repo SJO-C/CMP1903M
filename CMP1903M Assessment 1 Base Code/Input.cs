@@ -34,7 +34,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
                     Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
                 }
-                catch (IOException)
+                catch (IOException)//Handles when the File Path is un-proccessable.
                 {
                     Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
                     manualTextInput();

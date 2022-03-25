@@ -19,29 +19,29 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         //Create 'Input' object
         //Get either manually entered text, or text from a file
-            string Menu = ("");
-            string textDataforAnalysis = "aaaaaaa";
-            Input TInput = new Input();
+            string Menu = ("");//User Menu Choice.
+            string textDataforAnalysis = "aaaaaaa";//Place Holder Data.
+            Input TInput = new Input();//Creates Input Object.
             
-            Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");
-            ConsoleKeyInfo menuChoice = Console.ReadKey();
-            if (menuChoice.Key == ConsoleKey.M)
+            Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");//User Menu
+            ConsoleKeyInfo menuChoice = Console.ReadKey();//User Menu Selection.
+            if (menuChoice.Key == ConsoleKey.M)//Manual Mode Switch.
             {
                 Console.WriteLine("\nManual Mode Selected.");
                 textDataforAnalysis = TInput.manualTextInput();
             }
 
-            else if (menuChoice.Key == ConsoleKey.F)
+            else if (menuChoice.Key == ConsoleKey.F)//File Mode Switch.
             {
 
-                try
+                try //Tries to open a file path.
                 {
                     Console.WriteLine("\nFile Mode Selected.");
                     Console.WriteLine("\nIf your text file is not in the same directory as this Executable,\n Please enter the full path using forward as opposed to back slashes.\n");
-                    Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory());
+                    Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory()); //Outputs current Directory to allow for the user to know where the program is executing from.
                     Console.Write("Enter File Path > ");
-                    string path2File = Console.ReadLine();
-                    textDataforAnalysis = TInput.fileTextInput(path2File);
+                    string path2File = Console.ReadLine();//File Path Getter.
+                    textDataforAnalysis = TInput.fileTextInput(path2File);//Passes File Path String to Input Program.
 
                 }
                 catch (NullReferenceException)
@@ -58,7 +58,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
             
-            else if (menuChoice.Key == ConsoleKey.Q)
+            else if (menuChoice.Key == ConsoleKey.Q)//Quit the Program Function.
             {
                 Environment.Exit(0);
             }
@@ -75,6 +75,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             List<int> letterData = Counts.analyseText(textDataforAnalysis);
 
             //Report the results of the analysis
+            //Tests whether the report ran successfully.
             Report reportOutput = new Report();
             bool reportSuccess = reportOutput.outputConsole(letterData, true);
             if (reportSuccess == true)
@@ -89,7 +90,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //TO ADD: Get the frequency of individual letters? 
 
-
+            //Gives the User the choice to re-run the program.
             Console.WriteLine("Press R to go again or Q to quit.");
 
             ConsoleKeyInfo rerunMenu = Console.ReadKey();
@@ -97,7 +98,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 Main();
             }
-            else if (rerunMenu.Key == ConsoleKey.Q)
+            else if (rerunMenu.Key == ConsoleKey.Q)//Exit Program
             {
                 Environment.Exit(0);
             }

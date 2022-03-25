@@ -65,24 +65,28 @@ namespace CMP1903M_Assessment_1_Base_Code
             //This Loop is for identifying the letter case via the use of Regex.
             foreach (var j in input)
             {
-                //Console.WriteLine(j.ToString()); <DEBUG LINE DISREGARD>
+                //This uses a Regex to Identify Upper Case Letters.
                 if (rxUpper.IsMatch(j.ToString()) == true)
                 {
                     values[3]++;
                 }
+                //Same but for Lower Case Letters.
                 else if (rxLower.IsMatch(j.ToString()) == true)
                 {
                     values[4]++;
                 }
             }
 
+            //Identifies Words greater than/or equal to 7 letter in Length.
             values[5] = rxLongWord.Matches(input).Count();
+            //Creates a Unique Filename for the Long Words Text File.
             string DT = DateTime.Now.ToString();
             DT = DT.Replace(":", "-");
             DT = DT.Replace("/", "_");
             DT = DT.Replace(@"\", "_");
             string longWordFN = ("LongWords" + DT + ".txt");
             Console.WriteLine(longWordFN);
+            //Writes the Long Words File.
             var longWords = File.CreateText(longWordFN);
             foreach (var k in rxLongWord.Matches(input))
             {
@@ -90,6 +94,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             longWords.Close();
 
+            //Character Counter. Counts all characters and lists them in order of 1st Appearance.
             Dictionary<char, int> charCount = new Dictionary<char, int>();
             foreach (var k in input.ToUpper().ToCharArray())
             {
@@ -107,6 +112,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
 
+            //Outputs the Character Count.
             Console.WriteLine("Character Frequencies: ");
             foreach (char k in charCount.Keys)
             {
