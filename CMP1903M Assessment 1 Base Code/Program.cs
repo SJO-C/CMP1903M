@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
     {
-        
+
         static void Main()
         {
 
@@ -22,7 +23,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             string textDataforAnalysis = "Test Data, this should never appear during execution.";//Place Holder Data.
             Input TInput = new Input();//Creates Input Object.
-            Console.WriteLine("Welcome to Text Analyser " + Environment.UserName);
+            Console.WriteLine("Welcome to Text Analyser " + Environment.UserName + ".");
             Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");//User Menu
             ConsoleKeyInfo menuChoice = Console.ReadKey();//User Menu Selection.
             if (menuChoice.Key == ConsoleKey.M)//Manual Mode Switch.
@@ -57,7 +58,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Main();
                 }
             }
-            
+
             else if (menuChoice.Key == ConsoleKey.Q)//Quit the Program Function.
             {
                 Environment.Exit(0);
@@ -68,8 +69,8 @@ namespace CMP1903M_Assessment_1_Base_Code
                 Console.WriteLine();
                 Main();
             }
-        //Create an 'Analyse' object
-        //Pass the text input to the 'analyseText' method
+            //Create an 'Analyse' object
+            //Pass the text input to the 'analyseText' method
             Analyse Counts = new Analyse();
 
             //Receive a list of integers back
@@ -92,21 +93,31 @@ namespace CMP1903M_Assessment_1_Base_Code
             //TO ADD: Get the frequency of individual letters? 
 
             //Gives the User the choice to re-run the program.
-            Console.WriteLine("Press R to go again, C to clear Screen and go again or Q to quit.");
+            string rerunString = "Press R to go again or Q to quit.";
+            Console.WriteLine(rerunString);
+
 
             ConsoleKeyInfo rerunMenu = Console.ReadKey();
-            if (rerunMenu.Key == ConsoleKey.R)
+            while (rerunMenu.Key != ConsoleKey.R | rerunMenu.Key != ConsoleKey.Q)//If key is not recognised, 
             {
-                Main();
-            }
-            else if (rerunMenu.Key == ConsoleKey.Q)//Exit Program
-            {
-                Environment.Exit(0);
-            }
-            else if (rerunMenu.Key == ConsoleKey.C)
-            {
-                Console.Clear();  
-                Main();
+                if (rerunMenu.Key == ConsoleKey.R)
+                {
+                    Console.Clear();
+                    Main();
+                    break;
+
+                }
+                else if (rerunMenu.Key == ConsoleKey.Q)//Exit Program
+                {
+                    Environment.Exit(0);
+                }
+                else 
+                {
+                    Console.Clear();
+                    Console.WriteLine("You are Using Text Analyser by Samuel Orman-Chan\nID Number: 25659005.");
+                    Console.WriteLine(rerunString); 
+                }
+                rerunMenu = Console.ReadKey();
             }
         }
     }
