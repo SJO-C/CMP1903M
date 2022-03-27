@@ -23,7 +23,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             string textDataforAnalysis = "Test Data, this should never appear during execution.";//Place Holder Data.
             Input TInput = new Input();//Creates Input Object.
-            Console.WriteLine("Welcome to Text Analyser " + Environment.UserName + ".");
+            Console.WriteLine("Welcome to Text Analyser " + Environment.UserName + ".\nThis program is by Samuel Jonathan Orman-Chan\nID Number 25659005.");
             Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");//User Menu
             ConsoleKeyInfo menuChoice = Console.ReadKey();//User Menu Selection.
             if (menuChoice.Key == ConsoleKey.M)//Manual Mode Switch.

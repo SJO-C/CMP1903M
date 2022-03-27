@@ -43,7 +43,24 @@ namespace CMP1903M_Assessment_1_Base_Code
                     try
                     {
                         text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
-                        Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
+                        //Checks if file is long, if so, asks if user wants it outputted.
+                        int numLines = text.Split('\n').Length; //Thanks StackOverflow for this bit. https://stackoverflow.com/questions/11189331/how-to-count-lines-in-a-string
+                        if (numLines > 15)
+                        {
+                            Console.WriteLine("This file looks to have a lot of lines in, are you sure you want to print it out on screen? (y/N)");
+                            char longChoice = Console.ReadKey().KeyChar;
+                            if (longChoice == 'y')
+                            {
+                                Console.WriteLine(text);//Outputs the Text for to confirm the text is what is wanted by the user.
+                            }
+                            else {; }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine(text);
+                        }
+                         
                     }
                     catch (IOException)//Handles when the File Path is un-proccessable.
                     {
