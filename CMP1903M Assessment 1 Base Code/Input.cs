@@ -47,6 +47,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                         int numLines = text.Split('\n').Length; //Thanks StackOverflow for this bit. https://stackoverflow.com/questions/11189331/how-to-count-lines-in-a-string
                         if (numLines > 15)
                         {
+                            Console.Beep();
                             Console.WriteLine("This file looks to have a lot of lines in, are you sure you want to print it out on screen? (y/N)");
                             char longChoice = Console.ReadKey().KeyChar;
                             if (longChoice == 'y')
@@ -64,11 +65,13 @@ namespace CMP1903M_Assessment_1_Base_Code
                     }
                     catch (IOException)//Handles when the File Path is un-proccessable.
                     {
+                        Console.Beep();
                         Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
                         manualTextInput();
                     }
-                    catch (ArgumentException)
+                    catch (ArgumentException
                     {
+                        Console.Beep();
                         Console.WriteLine("File Path Erroneous or Not Entered.\nSwitching to Manual Mode.");
                         manualTextInput();
                     }
