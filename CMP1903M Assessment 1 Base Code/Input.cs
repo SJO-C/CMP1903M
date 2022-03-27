@@ -21,6 +21,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             text = Console.ReadLine();//Reads User Input up to 1st Newline Character.
             if (string.IsNullOrEmpty(text))
             {
+                Console.Beep();
                 Console.WriteLine("No text entered, using default string: 'nothing'");
                 text = "nothing";
                 return text;
