@@ -30,7 +30,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             //5. Number of lower case letters
             List<int> values = new List<int>();
             //Initialise all the values in the list to '0'
-            for(int i = 0; i<6; i++)
+            for(int i = 0; i<7; i++)
             {
                 values.Add(0);
             }
@@ -86,7 +86,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             DT = DT.Replace("/", "_");
             DT = DT.Replace(@"\", "_");
             string longWordFN = ("LongWords" + DT + ".txt");
-            Console.WriteLine(longWordFN);
+            Console.WriteLine("\nThe file where you will find the list long words will\nbe in the directory of execution and named:\n" + longWordFN + "\n...\n");
             //Writes the Long Words File.
             var longWords = File.CreateText(longWordFN);
             foreach (var k in rxLongWord.Matches(input))

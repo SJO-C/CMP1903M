@@ -38,7 +38,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 try //Tries to open a file path.
                 {
                     Console.WriteLine("\nFile Mode Selected.");
-                    Console.WriteLine("\nIf your text file is not in the same directory as this Executable,\n Please enter the full path using forward as opposed to back slashes.\n");
+                    Console.WriteLine("\nIf your text file is not in the same directory as this Executable,\nPlease enter the full path using forward as opposed to back slashes.\n");
                     Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory()); //Outputs current Directory to allow for the user to know where the program is executing from.
                     Console.Write("Enter File Path > ");
                     string path2File = Console.ReadLine();//File Path Getter.
