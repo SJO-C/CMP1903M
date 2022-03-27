@@ -18,9 +18,9 @@ namespace CMP1903M_Assessment_1_Base_Code
                 if ((ENyOrn == true) ^ (ENyOrn == null)){//Outputs the Count of the measured metrics.
 
                 
-                    Console.WriteLine("Sentence Count." + values[0]);
-                    Console.WriteLine("Vowel Count " + values[1]);
-                    Console.WriteLine("Consonants Count." + values[2]);
+                    Console.WriteLine("Sentence Count. " + values[0]);
+                    Console.WriteLine("Vowel Count. " + values[1]);
+                    Console.WriteLine("Consonants Count. " + values[2]);
                     Console.WriteLine("Upper-Case Count. " + values[3]);
                     Console.WriteLine("Lower-Case Count. " + values[4]);
                     Console.WriteLine("Long Word Count (<=7). " + values[5]);
@@ -32,7 +32,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Console.WriteLine("Nombro de Konsonantoj. " + values[2]);
                     Console.WriteLine("Nombro de Majusklaj Literoj " + values[3]);
                     Console.WriteLine("Nombro de Minusklaj Literoj " + values[4]);
-                    Console.WriteLine("Nombro de Granda Vortoj " + values[5]);
+                    Console.WriteLine("Nombro de Grandaj Vortoj " + values[5]);
 
 
                 }

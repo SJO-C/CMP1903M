@@ -15,14 +15,14 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
 
             //Local list of integers to hold the first five measurements of the text
-           // public List<int> parameters = new List<int>();
+            // public List<int> parameters = new List<int>();
 
-        //Create 'Input' object
-        //Get either manually entered text, or text from a file
-            string Menu = ("");//User Menu Choice.
-            string textDataforAnalysis = "aaaaaaa";//Place Holder Data.
+            //Create 'Input' object
+            //Get either manually entered text, or text from a file
+
+            string textDataforAnalysis = "Test Data, this should never appear during execution.";//Place Holder Data.
             Input TInput = new Input();//Creates Input Object.
-            
+            Console.WriteLine("Welcome to Text Analyser " + Environment.UserName);
             Console.Write("\n(M)anual or (F)ile Mode?\nTo Quit Press Q> ");//User Menu
             ConsoleKeyInfo menuChoice = Console.ReadKey();//User Menu Selection.
             if (menuChoice.Key == ConsoleKey.M)//Manual Mode Switch.
@@ -64,6 +64,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             else
             {
+                Console.WriteLine("\nInvalid Key Input...");
                 Console.WriteLine();
                 Main();
             }
@@ -91,7 +92,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             //TO ADD: Get the frequency of individual letters? 
 
             //Gives the User the choice to re-run the program.
-            Console.WriteLine("Press R to go again or Q to quit.");
+            Console.WriteLine("Press R to go again, C to clear Screen and go again or Q to quit.");
 
             ConsoleKeyInfo rerunMenu = Console.ReadKey();
             if (rerunMenu.Key == ConsoleKey.R)
@@ -101,6 +102,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             else if (rerunMenu.Key == ConsoleKey.Q)//Exit Program
             {
                 Environment.Exit(0);
+            }
+            else if (rerunMenu.Key == ConsoleKey.C)
+            {
+                Console.Clear();  
+                Main();
             }
         }
     }

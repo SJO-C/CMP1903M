@@ -56,9 +56,10 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     values[2]++;
                 }
-                else if (i == ((char)46))
+                else if (i == '.' | i == '!' | i == '?')//If Typical Sentence Terminator found, add 1 to the Sentence Counter.
+                                                        //Thanks Samuel Harwood for pointing out that sentences don't always end in a full stop.
                 {
-                    values[3]++;
+                    values[0]++;
                 }  
             }
             
@@ -99,16 +100,15 @@ namespace CMP1903M_Assessment_1_Base_Code
             foreach (var k in input.ToUpper().ToCharArray())
             {
                 if (k == ((char)42)) { break; }
+                else if (k == ((char)32)) { ; }//Ignores Spaces from the Character Count.
                 
-                else if (charCount.ContainsKey(k) == true)
+                else if (charCount.ContainsKey(k) == true) //If the character is already a key in the Dictionary it increments the key by 1.
                 {
                     charCount[k]++;
                 }
-                else
+                else //Otherwise the Character is added to the Dictionary as a key with the initial value set to 1.
                 {
-                    {
-                        charCount.Add(k, 1);
-                    }
+                    charCount.Add(k, 1);
                 }
             }
 
@@ -120,53 +120,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             Console.WriteLine();
 
-
-
-            //####################
-            //OLD CODE PLS IGNORE.
-            //####################
-            //Converts the String to an Array of Bytes.
-            //byte[] inputASCII = Encoding.ASCII.GetBytes(input);
-            ////Loops through the Array of Bytes and if the Byte is in the range of a Capital Letter, Increments the 
-            ////Capital Letter Counter by 1 or if it is in the range of a Lower Case, it increments the Lower Case Counter
-            ////by 1.
-            //foreach (var j in inputASCII)
-            //{
-            //    int inputASCII2Int = BitConverter.ToInt32(inputASCII, 0);
-            //    if (inputASCII2Int == 42) { break; }
-            //    else if (inputASCII2Int >= 65 && inputASCII2Int <= 90)
-            //    {
-            //        values[3]++;
-            //    }
-            //    else if (inputASCII2Int >= 92 && inputASCII2Int <= 122)
-            //    {
-            //        values[4]++;
-            //    }
-
-            //}
-
-
-            //DEBUG
-            //Console.WriteLine("Sentence Count TBC." + values[0]);
-            //Console.WriteLine("Vowel Count? " + values[1]);
-            //Console.WriteLine("Consonants Count TBC." + values[2]);
-            //Console.WriteLine("Upper-Case Count TBC. " + values[3]);
-            //Console.WriteLine("Lower-Case Count TBC. " + values[4]);
-
-
-
-
             return values;
         }
     }
 }
-//IDictionary<stringint> analyseText = new Dictionary<stringint>();
 
-//char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXY".ToCharArray();
-////foreach (char element in alfabeto)
-////{
-
-////}
 
 
 

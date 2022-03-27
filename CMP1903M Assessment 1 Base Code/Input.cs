@@ -17,9 +17,18 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
-            Console.Write("Please Input Text at the Prompt> ");//User Prompt
+            Console.Write("Please Input Text at the Prompt> ");//User 
             text = Console.ReadLine();//Reads User Input up to 1st Newline Character.
-            return text;
+            if (string.IsNullOrEmpty(text))
+            {
+                Console.WriteLine("No text entered, using default string: 'nothing'");
+                text = "nothing";
+                return text;
+            }
+            else
+            {
+                return text;
+            }
         }
 
         //Method: fileTextInput
@@ -29,19 +38,32 @@ namespace CMP1903M_Assessment_1_Base_Code
         public string fileTextInput(string fileName)
         {
             {
-                try 
+                if (fileName != null)
                 {
-                    text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
-                    Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
+                    try
+                    {
+                        text = File.ReadAllText(fileName); //Reads Text of File from Path provided.
+                        Console.WriteLine(text); //Outputs the Text for to confirm the text is what is wanted by the user.
+                    }
+                    catch (IOException)//Handles when the File Path is un-proccessable.
+                    {
+                        Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
+                        manualTextInput();
+                    }
+                    catch (ArgumentException)
+                    {
+                        Console.WriteLine("File Path Erroneous or Not Entered.\nSwitching to Manual Mode.");
+                        manualTextInput();
+                    }
                 }
-                catch (IOException)//Handles when the File Path is un-proccessable.
+                else
                 {
-                    Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
-                    manualTextInput();
+                    throw new ArgumentException();
                 }
-                
-            }
-            return text;
+
+
+                }
+                return text;
         }
 
     }
