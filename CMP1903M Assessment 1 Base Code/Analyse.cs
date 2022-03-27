@@ -89,15 +89,22 @@ namespace CMP1903M_Assessment_1_Base_Code
             string longWordFN = ("LongWords" + DT + ".txt");
             Console.WriteLine("\nThe file where you will find the list long words will\nbe in the directory of execution and named:\n" + longWordFN + "\n...\n");
             //Writes the Long Words File.
-            var longWords = File.CreateText(longWordFN);
-            foreach (var k in rxLongWord.Matches(input))
+            if (values[5] > 0)
             {
-                longWords.WriteLine(k);
+                var longWords = File.CreateText(longWordFN);
+                foreach (var k in rxLongWord.Matches(input))
+                {
+                    longWords.WriteLine(k);
+                }
+                longWords.Close();
             }
-            longWords.Close();
+            else
+            {
+                ;//Pass
+            }
 
-            //Character Counter. Counts all characters and lists them in order of 1st Appearance.
-            Dictionary<char, int> charCount = new Dictionary<char, int>();
+                //Character Counter. Counts all characters and lists them in order of 1st Appearance.
+                Dictionary<char, int> charCount = new Dictionary<char, int>();
             foreach (var k in input.ToUpper().ToCharArray())
             {
                 if (k == ((char)42)) { break; }
