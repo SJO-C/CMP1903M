@@ -38,11 +38,12 @@ namespace CMP1903M_Assessment_1_Base_Code
                 try //Tries to open a file path.
                 {
                     Console.WriteLine("\nFile Mode Selected.");
-                    Console.WriteLine("\nIf your text file is not in the same directory as this Executable (available below).\nThen please enter the full path.");
+                    Console.WriteLine("\nIf your text file is not in the same directory as this Executable (available below),\nThen please enter the full path. Without any speech-marks.");
                     Console.WriteLine("\nYou are currently in Directory: " + Directory.GetCurrentDirectory()); //Outputs current Directory to allow for the user to know where the program is executing from.
                     Console.Write("\nEnter File Path > ");
                     string path2File;
                     path2File = Console.ReadLine();//File Path Getter.
+                    
                     path2File = path2File.Replace(@"\", "/");
                     path2File = path2File.Replace("\"", "");
                     textDataforAnalysis = TInput.fileTextInput(path2File);//Passes File Path String to Input Program.
