@@ -69,7 +69,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                         Console.WriteLine("File Open NOT Working.\nSwitching to Manual Mode.");
                         manualTextInput();
                     }
-                    catch (ArgumentException
+                    catch (ArgumentException)
                     {
                         Console.Beep();
                         Console.WriteLine("File Path Erroneous or Not Entered.\nSwitching to Manual Mode.");
