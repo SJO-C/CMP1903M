@@ -81,16 +81,17 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Identifies Words greater than/or equal to 7 letter in Length.
             values[5] = rxLongWord.Matches(input).Count();
             //Creates a Unique Filename for the Long Words Text File.
-            string DT = DateTime.Now.ToString();
-            DT = DT.Replace(":", "-");
-            DT = DT.Replace("/", "_");
-            DT = DT.Replace(@"\", "_");
-            DT = DT.Replace(@" ", "_");
-            string longWordFN = ("LongWords" + DT + ".txt");
-            Console.WriteLine("\nThe file where you will find the list long words will\nbe in the directory of execution and named:\n" + longWordFN + "\n...\n");
+            
             //Writes the Long Words File.
             if (values[5] > 0)
             {
+                string DT = DateTime.Now.ToString();
+                DT = DT.Replace(":", "-");
+                DT = DT.Replace("/", "_");
+                DT = DT.Replace(@"\", "_");
+                DT = DT.Replace(@" ", "_");
+                string longWordFN = ("LongWords" + DT + ".txt");
+                Console.WriteLine("\nThe file where you will find the list long words will\nbe in the directory of execution and named:\n" + longWordFN + "\n...\n");
                 var longWords = File.CreateText(longWordFN);
                 foreach (var k in rxLongWord.Matches(input))
                 {
