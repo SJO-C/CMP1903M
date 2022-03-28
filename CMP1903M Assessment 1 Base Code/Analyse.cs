@@ -37,7 +37,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //Use of Regular expressions, Thanks John Brock for the Inspiration here.
             //This is done to allow for a more efficient -in theory- program.
-            Regex rxSentence = new Regex(@"^\w+[A-Za-z,;'s]+[.?!]$");
+            Regex rxSentence = new Regex(@"^\w+[A-Za-z,;'s]+[.?!]$"); 
             MatchCollection matches = rxSentence.Matches(input);
             Regex rxUpper = new Regex(@"[A-Z]");
             Regex rxLower = new Regex(@"[a-z]");
