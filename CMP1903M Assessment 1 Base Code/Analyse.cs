@@ -12,7 +12,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         //Handles the analysis of text
         
-        public Boolean letterCount(string input)//Additional method.
+        public Boolean letterCount(string input)//Additional method. ENCAPSULATION?
         {   //Character Counter. Counts all characters and lists them in order of 1st Appearance.
             Dictionary<char, int> charCount = new Dictionary<char, int>();
             foreach (var k in input.ToUpper().ToCharArray())
