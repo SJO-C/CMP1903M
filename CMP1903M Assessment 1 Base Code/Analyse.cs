@@ -11,12 +11,40 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Analyse
     {
         //Handles the analysis of text
+        //Character Counter. Counts all characters and lists them in order of 1st Appearance.
+        public Boolean letterCount(string input)
+        {
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+            foreach (var k in input.ToUpper().ToCharArray())
+            {
+                if (k == ((char)42)) { break; }
+                else if (k == ((char)32)) {; }//Ignores Spaces from the Character Count.
 
-        //Method: analyseText
-        //Arguments: string
-        //Returns: list of integers
-        //Calculates and returns an analysis of the text
-        public List<int> analyseText(string input)
+                else if (charCount.ContainsKey(k) == true) //If the character is already a key in the Dictionary it increments the key by 1.
+                {
+                    charCount[k]++;
+                }
+                else //Otherwise the Character is added to the Dictionary as a key with the initial value set to 1.
+                {
+                    charCount.Add(k, 1);
+                }
+            }
+
+            //Outputs the Character Count.
+            Console.WriteLine("Character Frequencies: ");
+            foreach (char k in charCount.Keys)
+            {
+                Console.WriteLine(k + " " + charCount[k]);
+            }
+            Console.WriteLine();
+            return true;
+        }
+
+//Method: analyseText
+//Arguments: string
+//Returns: list of integers
+//Calculates and returns an analysis of the text
+public List<int> analyseText(string input)
         {
             //List of integers to hold the first five measurements:
             //1. Number of sentences
@@ -104,30 +132,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 ;//Pass
             }
 
-                //Character Counter. Counts all characters and lists them in order of 1st Appearance.
-                Dictionary<char, int> charCount = new Dictionary<char, int>();
-            foreach (var k in input.ToUpper().ToCharArray())
-            {
-                if (k == ((char)42)) { break; }
-                else if (k == ((char)32)) { ; }//Ignores Spaces from the Character Count.
-                
-                else if (charCount.ContainsKey(k) == true) //If the character is already a key in the Dictionary it increments the key by 1.
-                {
-                    charCount[k]++;
-                }
-                else //Otherwise the Character is added to the Dictionary as a key with the initial value set to 1.
-                {
-                    charCount.Add(k, 1);
-                }
-            }
-
-            //Outputs the Character Count.
-            Console.WriteLine("Character Frequencies: ");
-            foreach (char k in charCount.Keys)
-            {
-                Console.WriteLine(k + " " + charCount[k]);
-            }
-            Console.WriteLine();
+            letterCount(input);
 
             return values;
         }
