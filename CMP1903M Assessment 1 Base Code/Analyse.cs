@@ -12,7 +12,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         //Handles the analysis of text
         
-        public Boolean letterCount(string input)//Additional method. ENCAPSULATION?
+        private Boolean letterCount(string input)//Additional method. ENCAPSULATION?
         {   //Character Counter. Counts all characters and lists them in order of 1st Appearance.
             Dictionary<char, int> charCount = new Dictionary<char, int>();
             foreach (var k in input.ToUpper().ToCharArray())
@@ -118,7 +118,7 @@ public List<int> analyseText(string input)
                 DT = DT.Replace("/", "_");
                 DT = DT.Replace(@"\", "_");
                 DT = DT.Replace(@" ", "_");
-                string longWordFN = ("LongWords" + DT + ".txt");
+                string longWordFN = ("LongWords_" + DT + ".txt");
                 Console.WriteLine("\nThe file where you will find the list long words will\nbe in the directory of execution and named:\n" + longWordFN + "\n...\n");
                 var longWords = File.CreateText(longWordFN);
                 foreach (var k in rxLongWord.Matches(input))

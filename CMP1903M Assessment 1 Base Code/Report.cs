@@ -15,7 +15,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             try
             {
-                if ((ENyOrn == true) ^ (ENyOrn == null)){//Outputs the Count of the measured metrics.
+                if ((ENyOrn == true)){//Outputs the Count of the measured metrics.
 
                 
                     Console.WriteLine("Sentence Count. " + values[0]);
