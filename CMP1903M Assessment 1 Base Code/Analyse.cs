@@ -44,7 +44,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 //Arguments: string
 //Returns: list of integers
 //Calculates and returns an analysis of the text
-public List<int> analyseText(string input)
+        public List<int> analyseText(string input)
         {
             //List of integers to hold the first five measurements:
             //1. Number of sentences
