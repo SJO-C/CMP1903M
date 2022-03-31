@@ -7,3 +7,5 @@ Samuel H further noted that error handling is incomplete following their pull re
 ---
 
 In return I have reviewed the code of Anthony Goddard (see above), Daniel Wessels (25827459), Liam Whitehead (25698752), Jonathan Burton (25802919) and Thomas Hegarty (25806432). I noted in the former two, some inefficienties and used the Issue tracker on GitHub to record as such. My approach was to read the code and try to execute the code on my machine to check functionality as well as try to understand the user interface. I subsequently went through the code and wrote an individual review for each file of sourcecode. I tried to be constructive without coming across as overly critical but am unsure if I was successful in doing so.
+---
+# **Read Only From 13:35 on the 31st March 2021.**
